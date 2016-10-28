@@ -1,0 +1,112 @@
+html{
+    background-color: #fff;
+}
+
+.form-labels-on-top{
+    box-sizing: border-box;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 5px;
+
+    background-color:  #ffffff;
+   /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);*/
+
+    font: bold 14px sans-serif;
+    text-align: left;
+	/*overflow: scroll;*/
+	OVERFLOW-Y:auto;
+	OVERFLOW-X:hidden;
+	max-height:600px;
+}
+
+.form-labels-on-top p{
+    text-align: left;
+    max-width: 500px;
+    margin: 10px auto;
+}
+
+.form-labels-on-top label{
+    display: block;
+    box-sizing: border-box;
+    color:  #5f5f5f;
+    width: 120px;
+    height: 37px;
+    padding: 5px;
+    margin-right : 10px;
+    text-align: left;
+    float: left;
+    font-family: 'GodoB';
+	font-style: normal;
+	src: url('GodoB.ttf');
+}
+
+.form-labels-on-top input{
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    width: 350px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 10px;
+    border: 1px solid #dbdbdb;
+    margin-left: 0 auto;
+    float: top;
+}
+
+.form-labels-on-top input[type=radio],
+.form-labels-on-top input[type=checkbox]{
+    box-shadow: none;
+    width: auto;
+    height: 15px;
+    float: left;
+}
+
+.form-labels-on-top select{
+    background-color: #ffffff;
+    color:  #5f5f5f;
+    box-sizing: border-box;
+    height: 40px;
+    width: 240px;
+    box-shadow: 1px 2px 4px 0 rgba(0, 0, 0, 0.08);
+    padding: 3px 3px;
+    border: 1px solid #dbdbdb;
+}
+
+.form-labels-on-top button{
+    width: 100px;
+	height: 50px;
+    display: block;
+    border-radius: 5px;
+    background-color: #FFF;
+    box-shadow: 1px 2px 4px 0 #eee;
+    border: 3;
+    margin: auto;
+    cursor: pointer;
+    font-family: 'GodoB';
+	font-style: normal;
+	src: url('GodoB.ttf');
+}
+
+/*	Making the form responsive. Remove this media query
+    if you don't need the form to work on mobile devices. */
+
+@media (max-width: 1000px) {
+
+    .form-labels-on-top{
+        padding: 30px;
+    }
+
+    .form-labels-on-top input{
+        width: 300px;
+    }
+    
+    .form-labels-on-top #id_birthday{
+    width: 300px;
+    
+}
+
+}
+@font-face {
+font-family: 'GodoB';
+font-style: normal;
+
+src: url('GodoB.ttf');
+}

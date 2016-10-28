@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>KCIA Survey</title>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/static/first/css/galleriffic.css"/>
+	<link type="text/css" rel="stylesheet" href="/static/first/css/style.css" />
+	<link rel="stylesheet" href="/static/first/css/form-login.css">
+	<link rel="stylesheet" type="text/css" href="/static/first/css/modal.css">
+	<link rel="stylesheet" href="/static/first/css/form-mini.css">
+	<link rel="stylesheet" type="text/css" href="/static/first/css/star.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	
+</head>
+<body>
+<div id="wrap">
+  <div id="header">
+    <div class="logo"><a href="login"><img src="/static/first/images/ci.png" alt="" /></a></div>
+    <!--end logo-->
+    <div id="nav">
+      <ul id="nav-pages">
+        <li><a href="login" class="current">홈</a><span></span></li>
+        <li><a href="signup">회원가입</a><span></span></li>
+        <li><a href="contact">문의사항</a></li>
+      </ul>
+      <!--end nav-pages-->
+    </div>
+    <!--end nav-->
+  </div>
+  <!--end header-->
+  <div id="frontpage-content">
+    <div id="container" style="height: 1100px">
+      <div class="gallery-content">
+        <div class="slideshow-container">
+          <div id="slideshow" class="slideshow">
+			<div id="box">
+				<br/><br/><br/><br/>
+				<video id="video" width="630px" height="380px" controls autoplay preload="auto">	</video>
+			</div>
+<!-------------------------------------------------------------------------------->
+		<div id="box">
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+				<!-- Modal content -->
+				<div class="modal-content">
+					<div class="modal-header">	  
+						<h2 id="total_persent2">시청한 장면의 감상을 써 주세요!</h2>
+						<h2 id="total_persent"></h2>
+					</div>
+					<div class="modal-body">
+
+						<div class="form-mini-container">
+							
+							
+							<form id="surveyForm" class="form-mini" method="post" action="{% url 'survey' %}">
+								{% csrf_token %}
+															
+								<div class="form-row">
+								
+									<div id="form2">
+										 선호도  :
+									</div>
+									<div id="form3">
+										<div id="ratingsForm">
+											<div class="stars">
+												<input type="radio" name="star" class="star-1" id="star-1" />
+												<label class="star-1" for="star-1">1</label>
+												<input type="radio" name="star" class="star-2" id="star-2" />
+												<label class="star-2" for="star-2">2</label>
+												<input type="radio" name="star" class="star-3" id="star-3" />
+												<label class="star-3" for="star-3">3</label>
+												<input type="radio" name="star" class="star-4" id="star-4" />
+												<label class="star-4" for="star-4">4</label>
+												<input type="radio" name="star" class="star-5" id="star-5" />
+												<label class="star-5" for="star-5">5</label>
+												<input type="radio" name="star" class="star-6" id="star-6" />
+												<label class="star-6" for="star-6">6</label>
+												<input type="radio" name="star" class="star-7" id="star-7" />
+												<label class="star-7" for="star-7">7</label>
+												<input type="radio" name="star" class="star-8" id="star-8" />
+												<label class="star-8" for="star-8">8</label>
+												<input type="radio" name="star" class="star-9" id="star-9" />
+												<label class="star-9" for="star-9">9</label>
+												<input type="radio" name="star" class="star-10" id="star-10" />
+												<label class="star-10" for="star-10">10</label>
+												<span></span>
+											</div>
+										</div>
+									</div>
+
+									
+									<br/>
+									<div id="form2">
+										 선호 사유  :
+									</div>
+									<div id="form3">
+										{{ surveyForm.reason }}
+									</div>
+
+								</div>
+					
+								<input type="hidden" name="videoURL" value="{{ videoURL }}">
+								<input type="hidden" name="shotID" value="{{ currentShot }}">
+								<input type="hidden" name="cID" value="{{ cid }}">
+								<input type="hidden" name="fileName" value="{{ filename }}">
+								<input type="hidden" name="Islast" value="true">
+								<input type="hidden" name="preference" value="">
+							</form>
+							<form method="post" action="" style="display : none" id="next_page">
+								<button type="submit" >Next2</button>
+							</form>
+						</div>
+					</div>
+					<div class="modal-footer">					
+						<span class="close" id="PushJson" >다음</span>
+
+						<span class="close" id="PopJson" style="display : none">Prev </span>
+					</div>
+				</div>
+			</div>
+		</div>
+<!-------------------------------------------------------------------------------->
+		  </div>
+        </div>
+        <!--end slideshow-container-->
+      </div>
+      <!--end gallery-content-->
+    </div>
+    <!--end container-->
+
+    <!--end navigation-containter-->
+  </div>
+</div>
+<!--end wrap-->
+
+</body>
+<script>
+
+var start_list= {{ startTime }};
+var end_list= {{ endTime }};
+var shot_id_list = {{ currentShot }};
+var video_link= "{{ videoURL }}";
+var cid="{{ cid }}";
+var filename="{{ filename }}";
+var totalShot = {{ totalShot }};
+
+</script>
+</html>
+
+
+
+
+
+<!--비디오 컨트롤러-->
+<script type="text/javascript" src="/static/first/js/video_control.js"></script>

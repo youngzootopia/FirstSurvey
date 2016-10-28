@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+<title>KCIA Survey</title>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/static/first/css/galleriffic.css"/>
+	<link type="text/css" rel="stylesheet" href="/static/first/css/style.css" />
+	<link rel="stylesheet" href="/static/first/css/form-register.css">
+	<link rel="stylesheet" href="/static/first/css/form-labels-on-top.css">
+	<link rel="stylesheet" type="text/css" href="/static/first/codebase/fonts/font_roboto/roboto.css"/>
+	<link rel="stylesheet" type="text/css" href="/static/first/codebase/dhtmlxcalendar.css"/>
+	<script src="/static/first/codebase/dhtmlxcalendar.js"></script>
+
+	<script>
+		var myCalendar;
+		// settings for a new language (Russian)
+		// make sure dhtmlxcalendar.js will be loaded
+		dhtmlXCalendarObject.prototype.langData["ru"] = {
+		    dateformat: '%Y/%m/%d',
+		    monthesFNames: ["1월","2월","3월","4월","5월","6월",
+		                    "7월","8월","9월","10월","11월","12월"],
+		    monthesSNames: ["1월","2월","3월","4월","5월","6월",
+		                    "7월","8월","9월","10월","11월","12월"],
+		    daysFNames: ["일요일","월요일","화요일","수요일","목요일",
+		                    "금요일","토요일"],
+		    daysSNames: ["일","월","화","수","목","금","토"],
+		    weekstart: 0,
+		};
+		function doOnLoad() {
+			myCalendar = new dhtmlXCalendarObject("id_birthday");
+			myCalendar.loadUserLanguage("ru");
+		}
+		function focusCalendar() {
+			myCalendar.show();
+		}
+		function focusPhone() {
+			alert("설문 대상 모집시 알려주신 핸드폰 번호를 정확히 입력해주세요!\n틀린 번호 입력시 모든 항목에 대해 설문을 진행하게 됩니다.")
+		}
+		
+	</script>
+</head>
+<body onload="doOnLoad();">
+<div id="wrap">
+  <div id="header">
+    <div class="logo"><a href="login"><img src="/static/first/images/ci.png" alt="" /></a></div>
+    <!--end logo-->
+    <div id="nav">
+      <ul id="nav-pages">
+        <li><a href="login" class="current">홈</a><span></span></li>
+        <li><a href="signup">회원가입</a><span></span></li>
+        <li><a href="contact">문의사항</a></li>
+      </ul>
+      <!--end nav-pages-->
+    </div>
+    <!--end nav-->
+  </div>
+  <!--end header-->
+{% block content %}
+<!-- You only need this form and the form-labels-on-top.css -->
+        <form class="form-labels-on-top" method="post">{% csrf_token %}
+        {{ signupform.as_p }}
+        <button type="submit" class="save btn btn-default">가입</button>
+    </form>
+{% endblock %}

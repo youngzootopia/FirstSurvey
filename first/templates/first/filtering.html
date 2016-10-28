@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<link type="text/css" rel="stylesheet" href="/static/first/css/galleriffic.css"/>
+	<link type="text/css" rel="stylesheet" href="/static/first/css/style.css" />
+	<link rel="stylesheet" href="/static/first/css/form-register.css">
+	<link rel="stylesheet" href="/static/first/css/form-labels-on-top.css">
+<title>KCIA Survey</title>
+
+</head>
+<body>
+<div id="wrap">
+  <div id="header">
+    <div class="logo"><a href="login"><img src="/static/first/images/ci.png" alt="" /></a></div>
+    <!--end logo-->
+    <div id="nav">
+      <ul id="nav-pages">
+        <li><a href="login" class="current">홈</a><span></span></li>
+        <li><a href="signup">회원가입</a><span></span></li>
+        <li><a href="contact">문의사항</a></li>
+      </ul>
+      <!--end nav-pages-->
+    </div>
+    <!--end nav-->
+  </div>
+  <!--end header-->
+{% block content %}
+    <form method="POST" class="form-labels-on-top" action="{% url 'filtering' %}">{% csrf_token %}
+        {{ filteringform.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+{% endblock %}
